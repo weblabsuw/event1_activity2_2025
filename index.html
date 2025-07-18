@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebLabs: Landmarks on Campus</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/javascript/javascript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/css/css.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/xml/xml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/closebrackets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/matchbrackets.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/addon/edit/closetag.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="column-left">
+        <h2>Editor</h2>
+        <div id="editor"></div>
+        <div class="buttons">
+          <button class="score-button" onclick="comparePixels()">Check Score</button>
+        </div>
+      </div>
+
+      <div class="column-right">
+        <div class="output-row">
+          <div class="user-output">
+            <h2>Your Output</h2>
+            <iframe id="userOutput"></iframe>
+            <div class="score-container">
+              <div class="score" id="lastScoreDisplay">Score: -</div>
+              <div class="score" id="highScoreDisplay">High Score: -</div>
+            </div>
+          </div>
+          <div class="target-output">
+            <h2>Target</h2>
+            <iframe id="targetOutput"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="canvasUser" width="200" height="200"></canvas>
+    <canvas id="canvasTarget" width="200" height="200"></canvas>
+    <script src="script.js"></script>
+
+  </body>
+
+</html>
