@@ -1,2 +1,2 @@
 # Landmarks on Campus
-Landmarks on campus CSS program
+WebLabs' Fall 2025 Event 1, Activity 2; CSS CodeMirror program
