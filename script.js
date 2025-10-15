@@ -198,8 +198,10 @@ function unlockNextLevel(scorePercent) {
 }
 
 const levels = {
+	
 	1: {
 		startCode: `<!-- the width and height are 200px and the color is blue. -->
+
 <div class="square"></div>
 
 <style>
@@ -216,20 +218,129 @@ const levels = {
 		</style>`
 	},
 	2: {
-		startCode: ``,
-		targetHTML: ``
+		startCode: `<!-- the width and height are 100px and the color is purple. -->
+
+<div class="container">
+	<div class="circle"></div>
+	<div class="circle"></div>
+	<div class="circle"></div>
+</div>
+
+<style>
+</style>`,
+		targetHTML: `<div class="container">
+	<div class="circle"></div>
+	<div class="circle"></div>
+	<div class="circle"></div>
+</div>
+
+<style>
+	.container {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+	.circle {
+		width: 100px;
+		height: 100px;
+		border-radius: 50px;
+		background-color: purple;
+	}
+</style>`
 	},
 	3: {
-		startCode: ``,
-		targetHTML: ``
+		startCode: `<!-- the height of Bucky is 150px. -->
+<div class="container">
+	<img src="BuckyBadger.png" alt="Bucky Badger">
+</div>
+
+<style> 
+</style>`,
+		targetHTML: `<div class="container">
+	<img src="BuckyBadger.png" alt="Bucky Badger">
+</div>
+
+<style> 
+	.container {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	img {
+		height: 150px;
+	}
+</style>`
 	},
 	4: {
-		startCode: ``,
-		targetHTML: ``
+		startCode: `<!-- the w_logo has a height of 40px and the title has a height of 100px. -->
+
+<div class="container">
+	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
+	<img src="uw_name.png" alt="UW Madison" class="title">
+	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
+</div>
+
+<style>
+</style>`,
+		targetHTML: `<div class="container">
+	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
+	<img src="uw_name.png" alt="UW Madison" class="title">
+	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
+</div>
+
+<style> 
+	.container {
+		height: 100%;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	.w_logo {
+		height: 40px;
+	}
+	.title {
+		height: 100px;
+	}
+</style>`
 	},
 	5: {
-		startCode: ``,
-		targetHTML: ``
+		startCode: `<!-- the image-container has a width of 350px and a height of 200px. The image is 400px x 400px, with an object position at -170px -70px. -->
+
+<div class="body">
+	<div class="image-container">
+		<img src="uwmadison.jpg" alt="UW Madison">
+	</div>
+</div>
+
+<style> 
+</style>`,
+		targetHTML: `<div class="body">
+	<div class="image-container">
+		<img src="uwmadison.jpg" alt="UW Madison">
+	</div>
+</div>
+
+<style> 
+	.body {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.image-container {
+		width: 350px;
+		height: 200px;
+		overflow: hidden;
+	}
+	img {
+		width: 400px;
+		height: 400px;
+		object-fit: cover;
+		object-position: -170px -70px;
+	}
+</style>`
 	}
 };
 
