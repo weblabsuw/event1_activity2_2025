@@ -278,7 +278,7 @@ const levels = {
 
 <div class="container">
 	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
-	<img src="uw_name.png" alt="UW Madison" class="title">
+	<img src="uw_name.png" alt="UW Madison" id="title">
 	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
 </div>
 
