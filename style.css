@@ -176,3 +176,18 @@ canvas{
 	color: black;
 	cursor: pointer;
 }
+
+@media (max-width: 1385px) {
+	.container {
+		gap: 10px;
+		margin: 0 10px;
+	}
+
+	.column-right {
+		flex: 1;
+	}
+
+	.column-right .output-row{
+		flex-direction: column;
+	}
+}
