@@ -21,31 +21,49 @@
   </head>
 
   <body>
+    <div class = "restart-container">
+        <button id="restart">Clear High Scores</button>
+    </div>
     <div class="container">
-      <div class="column-left">
-        <h2>Editor</h2>
-        <div id="editor"></div>
-        <div class="buttons">
-          <button class="score-button" onclick="comparePixels()">Check Score</button>
-        </div>
-      </div>
-
-      <div class="column-right">
-        <div class="output-row">
-          <div class="user-output">
-            <h2>Your Output</h2>
-            <iframe id="userOutput"></iframe>
-            <div class="score-container">
-              <div class="score" id="lastScoreDisplay">Score: -</div>
-              <div class="score" id="highScoreDisplay">High Score: -</div>
+        <div class="column-left">
+            <div class = "top-container">
+                <h2>Editor</h2>
+                <button id="resetBtn">Reset to Default</button>
             </div>
-          </div>
-          <div class="target-output">
-            <h2>Target</h2>
-            <iframe id="targetOutput"></iframe>
-          </div>
+            <div id="editor"></div>
+            <div class="buttons">
+            <button class="score-button" onclick="comparePixels()">Check Score</button>
+            </div>
         </div>
-      </div>
+
+        <div class="column-right">
+            <div class="output-row">
+                <div class="user-output">
+                    <h2>Your Output</h2>
+                    <iframe id="userOutput"></iframe>
+                    <div class="score-container">
+                    <div class="score" id="lastScoreDisplay">Score: -</div>
+                    <div class="score" id="highScoreDisplay">High Score: -</div>
+                </div>
+            </div>
+            <div class="target-output">
+                <h2>Target</h2>
+                <iframe id="targetOutput"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "full-level-container">
+        <h2 id="levels-complete">Levels Unlocked: 1/5</h2>
+        <div class = "level-container">
+            <button id = "prevArrow" class = "level-arrow locked" onClick="prevLevel()" disabled>
+                ◀
+            </button>
+            <div id="levelLabel" class="level-label">Level 1</div>
+            <button id = "nextArrow" class = "level-arrow locked" onClick="nextLevel()" disabled>
+                ▶
+            </button>
+        </div>
     </div>
 
     <canvas id="canvasUser" width="200" height="200"></canvas>
