@@ -1,4 +1,13 @@
-const highScores = {};
+window.addEventListener("load", () => {
+	localStorage.clear();
+	sessionStorage.clear();
+	highScores = {};
+	currentLevel = 1;
+	highestUnlocked = 1;
+	loadLevel(1);
+	updateLevelsUnlocked();
+	updateLevelDisplay();
+});
 
 document.getElementById("restart").addEventListener("click", () => {
 	const confirmReset = confirm("Are you sure you want to reset your high scores?");
@@ -55,29 +64,13 @@ doc.write(html);
 doc.close();
 }
 
-function loadTargetShape() {
-const targetHTML = `<div class="shape"></div>
-	<style>
-			.shape {
-			background-color: red;
-			width: 100px;
-			height: 100px;
-			border-radius: 50%;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-	</style>`;
-applyHTML(targetIframe, targetHTML);
-}
-
 editor.on("change", () => {
-applyHTML(userIframe, editor.getValue());
+	const userCode = editor.getValue();
+	localStorage.setItem(`userCode_level_${currentLevel}`, userCode);
+	applyHTML(userIframe, editor.getValue());
 });
 
 applyHTML(userIframe, editor.getValue());
-loadTargetShape();
 
 function drawIframeToCanvas(iframe, canvas) {
 	const svg = `
@@ -206,22 +199,21 @@ function unlockNextLevel(scorePercent) {
 
 const levels = {
 	1: {
-		startCode: `<div></div>
+		startCode: `<!-- the width and height are 200px and the color is blue. -->
+<div class="square"></div>
+
 <style>
 	div {
-		width: 100px;
-		height: 100px;
-		background: #dd6b4d;
 	}
 </style>`,
 		targetHTML: `<div></div>
-<style>
-	div {
-		width: 100px;
-		height: 100px;
-		background: #dd6b4d;
-	}
-</style>`
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+			}
+		</style>`
 	},
 	2: {
 		startCode: ``,
@@ -245,7 +237,11 @@ function loadLevel(level) {
 	const data = levels[level];
 	if (!data) return;
 
-	editor.setValue(data.startCode);
+	const savedCode = localStorage.getItem(`userCode_level_${level}`);
+	const codeToLoad = savedCode || data.startCode;
+
+	editor.setValue(codeToLoad);
+	applyHTML(userIframe, codeToLoad);
 	loadTargetHTML(data.targetHTML);
 
 	currentLevel = level;
