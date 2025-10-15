@@ -286,7 +286,7 @@ const levels = {
 </style>`,
 		targetHTML: `<div class="container">
 	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
-	<img src="uw_name.png" alt="UW Madison" class="title">
+	<img src="uw_name.png" alt="UW Madison" id="title">
 	<img src="Wisconsin_Logo.png" alt="UW Madison" class="w_logo">
 </div>
 
@@ -300,7 +300,7 @@ const levels = {
 	.w_logo {
 		height: 40px;
 	}
-	.title {
+	#title {
 		height: 100px;
 	}
 </style>`
