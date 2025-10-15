@@ -244,7 +244,7 @@ const levels = {
 	.circle {
 		width: 100px;
 		height: 100px;
-		border-radius: 50px;
+		border-radius: 100%;
 		background-color: purple;
 	}
 </style>`
